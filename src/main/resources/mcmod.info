@@ -1,0 +1,16 @@
+[
+{
+  "modid": "one_point_twelve_concrete",
+  "name": "1.12 Concrete",
+  "description": "17w06a's concrete backported to 1.10.2",
+  "version": "v 1.0",
+  "mcversion": "1.10.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Dbrown55"],
+  "credits": "Mojang for making the block in the first place",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
