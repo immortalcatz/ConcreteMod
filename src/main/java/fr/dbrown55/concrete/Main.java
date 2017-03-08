@@ -1,6 +1,7 @@
 package fr.dbrown55.concrete;
 
 import fr.dbrown55.concrete.blocks.BlockRegistry;
+import fr.dbrown55.concrete.compat.ChiselModCompat;
 import fr.dbrown55.concrete.items.ItemRegistry;
 import fr.dbrown55.concrete.recipes.RecipeHandler;
 import fr.dbrown55.concrete.tabs.CreativeTabRegistry;
@@ -32,8 +33,8 @@ public class Main {
 		RecipeHandler.init();
 		
 		conf = new Configuration(e.getSuggestedConfigurationFile());
-		/*PECompat = conf.getBoolean("projecte", "modCompat", true, "Whenever we should enable ProjectE compatibility");
-		ChiselCompat = conf.getBoolean("chisel", "modCompat", true, "Whenever we should enable Chisel compatibility");*/
+		//PECompat = conf.getBoolean("projecte", "modCompat", true, "Whenever we should enable ProjectE compatibility");
+		ChiselCompat = conf.getBoolean("chisel", "modCompat", true, "Whenever we should enable Chisel compatibility");
 		conf.save();
 	}
 	
@@ -51,12 +52,13 @@ public class Main {
 		if(PECompat){
 			ProjectECompat.init();
 		}
+		*/
 		
 		// Chisel compatibility
 		if(ChiselCompat){
 			ChiselModCompat.init();
 		}
-		*/
+		
 	}
 	
 }
