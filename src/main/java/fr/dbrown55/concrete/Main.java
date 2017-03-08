@@ -4,6 +4,7 @@ import fr.dbrown55.concrete.blocks.BlockRegistry;
 import fr.dbrown55.concrete.compat.ChiselModCompat;
 import fr.dbrown55.concrete.compat.ProjectECompat;
 import fr.dbrown55.concrete.items.ItemRegistry;
+import fr.dbrown55.concrete.recipes.RecipeHandler;
 import fr.dbrown55.concrete.tabs.CreativeTabRegistry;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -30,6 +31,7 @@ public class Main {
 		CreativeTabRegistry.init();
 		BlockRegistry.init();
 		ItemRegistry.init();
+		RecipeHandler.init();
 		
 		conf = new Configuration(e.getSuggestedConfigurationFile());
 		PECompat = conf.getBoolean("projecte", "modCompat", true, "Whenever we should enable ProjectE compatibility");
