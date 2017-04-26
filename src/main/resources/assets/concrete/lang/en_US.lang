@@ -1,0 +1,35 @@
+itemGroup.concreteTab=1.12 Concrete Mod
+
+tile.concrete_powder.name=%s Concrete Powder
+tile.concrete.name=%s Concrete
+tile.magma_concrete.name=Magma Concrete
+tile.magma_concrete_powder.name=Magma Concrete Powder
+tile.glowcrete.name=Glow-crete
+tile.glowcrete_powder.name=Glow-crete Powder
+
+item.deprecatedItem.name=§d§o@Deprecated§r §4§mthis§r §7//§lTODO§r§7: fix
+item.palette.name=Palette
+item.brush.name=Paint brush
+item.eraser.name=Eraser
+
+color.white=White
+color.orange=Orange
+color.magenta=Magenta
+color.lightBlue=Light Blue
+color.yellow=Yellow
+color.lime=Lime
+color.pink=Pink
+color.gray=Gray
+color.silver=Light Gray
+color.cyan=Cyan
+color.purple=Purple
+color.blue=Blue
+color.brown=Brown
+color.green=Green
+color.red=Red
+color.black=Black
+
+entity.concrete.ConcreteBug.name=Concrete Bug
+
+paint.subtitle=Player painting
+eraser.subtitle=Player erasing

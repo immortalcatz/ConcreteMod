@@ -1,0 +1,161 @@
+{
+    "__createdwith": "opl's Model Creator",
+    "ambientocclusion": false,
+    "textures": {
+        "wood": "blocks/planks_oak",
+        "paint": "concrete:items/paint"
+    },
+    "elements": [
+        {
+            "from": [11,0,0],
+            "to": [16,1,14],
+            "faces": {
+                "up": {
+                    "texture": "#wood"
+                },
+                "down": {
+                    "texture": "#wood"
+                },
+                "west": {
+                    "texture": "#wood"
+                },
+                "east": {
+                    "texture": "#wood"
+                },
+                "north": {
+                    "texture": "#wood"
+                },
+                "south": {
+                    "texture": "#wood"
+                }
+            }
+        },
+        {
+            "from": [0,0,0],
+            "to": [7,1,16],
+            "faces": {
+                "up": {
+                    "texture": "#wood"
+                },
+                "down": {
+                    "texture": "#wood"
+                },
+                "west": {
+                    "texture": "#wood"
+                },
+                "east": {
+                    "texture": "#wood"
+                },
+                "north": {
+                    "texture": "#wood"
+                },
+                "south": {
+                    "texture": "#wood"
+                }
+            }
+        },
+        {
+            "from": [7,0,10],
+            "to": [11,1,11],
+            "faces": {
+                "up": {
+                    "texture": "#wood"
+                },
+                "down": {
+                    "texture": "#wood"
+                },
+                "north": {
+                    "texture": "#wood"
+                },
+                "south": {
+                    "texture": "#wood"
+                }
+            }
+        },
+        {
+            "from": [7,0,0],
+            "to": [11,1,8],
+            "faces": {
+                "up": {
+                    "texture": "#wood"
+                },
+                "down": {
+                    "texture": "#wood"
+                },
+                "north": {
+                    "texture": "#wood"
+                },
+                "south": {
+                    "texture": "#wood"
+                }
+            }
+        },
+        {
+            "from": [10,0,8],
+            "to": [11,1,10],
+            "faces": {
+                "up": {
+                    "texture": "#wood"
+                },
+                "down": {
+                    "texture": "#wood"
+                },
+                "west": {
+                    "texture": "#wood"
+                }
+            }
+        },
+        {
+            "from": [7,0,8],
+            "to": [8,1,10],
+            "faces": {
+                "up": {
+                    "texture": "#wood"
+                },
+                "down": {
+                    "texture": "#wood"
+                },
+                "east": {
+                    "texture": "#wood"
+                }
+            }
+        },
+        {
+            "from": [0,0,0],
+            "to": [16,1.0999985,16],
+            "faces": {
+                "up": {
+                    "texture": "#paint",
+                    "rotation": 90
+                }
+            }
+        }
+    ],
+	"display": {
+		"gui": {
+			"rotation": [45, 45, 0],
+			"translation": [0, 3, 0],
+			"scale": [0.7, 0.7, 0.7]
+		},
+		"firstperson_righthand": {
+			"rotation": [45, 0, 45]
+		},
+		"thirdperson_righthand": {
+			"rotation": [90, 0, 0],
+			"scale": [0.5, 0.5, 0.5],
+			"translation": [0, 0, 5]
+		},
+		"fixed": {
+			"rotation": [-90, 180, 0],
+			"translation": [0, 0, -7]
+		},
+		"ground": {
+			"translation": [0, 5, 0],
+			"scale": [0.7, 0.7, 0.7]
+		},
+		"head": {
+			"rotation": [-90, 180, 0],
+			"translation": [0, 0, -16]
+		}
+	}
+}

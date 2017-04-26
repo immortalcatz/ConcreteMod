@@ -1,1 +1,5 @@
-{"variants": {"normal": {"model": "one_point_twelve_concrete:concrete_light_blue"}, "normal": {"model": "one_point_twelve_concrete:concrete_light_blue"}}}
+{
+    "variants": {
+        "normal": { "model": "one_point_twelve_concrete:randomStringOfCharactersIncoming" }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "one_point_twelve_concrete:blocks/@Deprecated_this_TODO_fix"
+    }
+}

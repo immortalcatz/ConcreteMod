@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "normal": { "model": "concrete:magma_concrete_powder" }
+    }
+}
