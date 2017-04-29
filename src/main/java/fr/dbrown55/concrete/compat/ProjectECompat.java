@@ -26,18 +26,6 @@ public class ProjectECompat {
 			altResult = BlockHandler.coloredS.getDefaultState().withProperty(BlockHandler.COLOR, EnumDyeColor.byMetadata(i == 0 ? 16 : i - 1));
 			WorldTransmutations.register(from, result, altResult);
 		}
-		
-		// Set powder EMC to solid as well
-		// Also for other concretes
-		for(EnumConcreteType type : EnumConcreteType.values()){
-			for(int i = 0; i < 16; i++){
-				ItemStack is = new ItemStack(type.getResult(), 1, i);
-				SimpleStack ss = new SimpleStack(is);
-				if(EMCHelper.doesItemHaveEmc(is)){
-					EMCMapper.emc.put(ss, EMCMapper.getEmcValue(ss));
-				}
-			}
-		}
 	}
 
 }

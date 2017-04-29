@@ -3,7 +3,8 @@ package fr.dbrown55.concrete.enums;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import net.minecraft.item.Item;
+import fr.dbrown55.concrete.items.ItemBlockConcretePowder;
+import fr.dbrown55.concrete.items.ItemHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
@@ -12,9 +13,11 @@ public class AnotherEnumHelper {
 	private static Method addEnumFromForge = null;
 	private static Class ISL_clazz = new ItemStack[]{}.getClass();
 	
-	public static EnumConcreteType addConcreteType(String enumName, String modid, String name, ItemStack[] toCraft, Item crafted){
+	public static EnumConcreteType addConcreteType(String enumName, String modid, String name, ItemStack[] toCraft, ItemBlockConcretePowder crafted){
 		EnumConcreteType theEnum = addEnum(new Class[][] {{EnumConcreteType.class, String.class, String.class, ISL_clazz}}, EnumConcreteType.class, enumName, modid, name, toCraft);
-		
+		if(theEnum != null){
+			ItemHandler.addResult(theEnum, crafted);
+		}
 		return theEnum;
 	}
 	

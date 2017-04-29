@@ -24,10 +24,12 @@ public class RecipeHandler {
 		OreDictionary.registerOre("concGrav", new ItemStack(Blocks.GRAVEL, 1, 0));
 	}
 	
-	public static void init(){		
+	public static void init(){
 		for(EnumConcreteType type : EnumConcreteType.values()){
-			for(int i = 0; i < type.getCraftStacks().length; i++){
-				GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(type.getResult(), 8, i), new Object[] {"concSand", "concSand", "concSand", "concSand", "concGrav", "concGrav", "concGrav", "concGrav", type.getCraftStacks()[i]}));
+			if(ItemHandler.getResult(type) != null){
+				for(int i = 0; i < type.getCraftStacks().length; i++){
+					GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ItemHandler.getResult(type), 8, i), new Object[] {"concSand", "concSand", "concSand", "concSand", "concGrav", "concGrav", "concGrav", "concGrav", type.getCraftStacks()[i]}));
+				}
 			}
 		}
 		

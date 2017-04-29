@@ -9,6 +9,7 @@ import fr.dbrown55.concrete.items.glow.IBGlowCrete;
 import fr.dbrown55.concrete.items.glow.IBGlowCretePowder;
 import fr.dbrown55.concrete.items.magma.IBMagmaConcrete;
 import fr.dbrown55.concrete.items.magma.IBMagmaConcretePowder;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -16,11 +17,9 @@ public class ItemHandler {
 
 	public static ItemBlockConcrete coloredS, magmaS, glowS;
 	public static ItemBlockConcretePowder coloredP, magmaP, glowP;
-	public static Item brush, palette, eraser, concreteBug;
+	public static Item brush, palette, eraser, concreteBug; 
 	
-	public static HashMap<EnumConcreteType, ItemBlockConcretePowder> mapPowder = new HashMap<EnumConcreteType, ItemBlockConcretePowder>();
-	
-	//EnumHelper
+	private static HashMap<EnumConcreteType, ItemBlockConcretePowder> mapPowder = new HashMap<EnumConcreteType, ItemBlockConcretePowder>();
 	
 	public static void init(){
 		// Vanilla
@@ -60,6 +59,20 @@ public class ItemHandler {
 		//                   |                                                                    |
 		//                   v                                                                    v
 		fr.dbrown55.concrete.FIXYOURMODYOUMORON.CouldYouPleaseBeABitMorePolite.butImGonnaDoItAnyway();
+	}
+
+	public static ItemBlockConcretePowder getResult(EnumConcreteType type) {
+		if(mapPowder.containsKey(type)){
+			return mapPowder.get(type);
+		} else {
+			return null;
+		}
+	}
+	
+	public static void addResult(EnumConcreteType type, ItemBlockConcretePowder result) {
+		if(getResult(type) == null){
+			mapPowder.put(type, result);
+		}
 	}
 	
 }
