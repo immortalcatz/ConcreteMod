@@ -91,28 +91,34 @@ public class EntityConcreteBug extends EntityMob {
 	@Override
 	public void onEntityUpdate() {
 		super.onEntityUpdate();
-		if(!this.worldObj.isRemote){
-			if(this.getEntityBoundingBox() != null && this.worldObj.isAABBInMaterial(this.getEntityBoundingBox(), Material.WATER) && !this.isSolid()){
+		if(!this.worldObj.isRemote) {
+			if(this.getEntityBoundingBox() != null && this.worldObj.isAABBInMaterial(this.getEntityBoundingBox(), Material.WATER) && !this.isSolid()) {
 				this.setSolid(true);
-			}
-			if(this.isSolid()){
-				ItemStack is = new ItemStack(ItemHandler.concreteBug, 1, 0);
-				NBTTagCompound nbt = new NBTTagCompound();
-				nbt.setInteger("color", this.getColor());
-				is.setTagCompound(nbt);
-				EntityItem ei = new EntityItem(this.worldObj, this.posX, this.posY, this.posZ, is);
-				this.worldObj.spawnEntityInWorld(ei);
-				this.setDead();
 			}
 		}
 	}
 	
 	@Override
 	protected boolean processInteract(EntityPlayer player, EnumHand hand, ItemStack stack) {
-		if(hand == EnumHand.MAIN_HAND && stack == null && this.isSolid()){
-			
+		if(hand == EnumHand.MAIN_HAND && stack == null && this.isSolid() && !this.worldObj.isRemote) {
+			ItemStack is = new ItemStack(ItemHandler.CONCRETE_BUG);
+			NBTTagCompound nbt = new NBTTagCompound();
+			nbt.setInteger("color", this.getColor());
+			is.setTagCompound(nbt);
+			EntityItem item = new EntityItem(this.worldObj, this.posX, this.posY, this.posZ, is);
+			this.worldObj.spawnEntityInWorld(item);
+			this.setDead();
 		}
 		return super.processInteract(player, hand, stack);
+	}
+	
+	@Override
+	public void onKillCommand() {
+		if(this.isSolid()) {
+			this.setDead();
+		} else {
+			super.onKillCommand();
+		}
 	}
 	
 	@Override
@@ -120,8 +126,8 @@ public class EntityConcreteBug extends EntityMob {
 		if(this.isEntityInvulnerable(source)) {
 			return false;
 		} else {
-			if(this.isSolid()){
-				return source == DamageSource.outOfWorld;
+			if(this.isSolid()) {
+				return false;
 			} else {
 				return super.attackEntityFrom(source, amount);
 			}
@@ -133,20 +139,20 @@ public class EntityConcreteBug extends EntityMob {
 		return LootTableList.ENTITIES_SILVERFISH;
 	}
 	
-	public void setColor(int color){
+	public void setColor(int color) {
 		this.dataManager.set(COLOR, color);
 	}
 	
-	public int getColor(){
+	public int getColor() {
 		return this.dataManager.get(COLOR);
 	}
 	
-	public void setSolid(boolean solid){
+	public void setSolid(boolean solid) {
 		this.dataManager.set(SOLID, solid);
 		this.setSilent(solid);
 	}
 	
-	public boolean isSolid(){
+	public boolean isSolid() {
 		return this.dataManager.get(SOLID);
 	}
 

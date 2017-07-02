@@ -1,82 +1,76 @@
 package fr.dbrown55.concrete.proxies;
 
-import fr.dbrown55.concrete.FIXYOURMODYOUMORON.CouldYouPleaseBeABitMorePolite;
-import fr.dbrown55.concrete.client.concretebug.RenderFactoryConcreteBug;
 import fr.dbrown55.concrete.entities.EntityConcreteBug;
 import fr.dbrown55.concrete.items.ItemHandler;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import fr.dbrown55.concrete.render.concretebug.RenderFactoryConcreteBug;
+import fr.dbrown55.utilmod.BaseProxyClient;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ClientProxy extends CommonProxy {
-	
+public class ClientProxy extends BaseProxyClient {
+
 	@Override
-	public void onPreInit() {		
-		for(int i = 0; i < 16; i++){
-			registerRender(ItemHandler.coloredP, i, "minecraft:" + EnumDyeColor.byMetadata(i).getName() + "_concrete_powder");
-			registerRender(ItemHandler.coloredS, i, "minecraft:" + EnumDyeColor.byMetadata(i).getName() + "_concrete");
+	public void preInit() {
+		for(EnumDyeColor dye : EnumDyeColor.values()) {
+			registerItemModel(ItemHandler.OLD_POWDER.get(dye));
+			registerItemModel(ItemHandler.OLD_SOLID.get(dye));
+			
+			registerItemModel(ItemHandler.VANILLA_POWDER, dye.getMetadata(), new ResourceLocation("minecraft", dye.getName() + "_concrete_powder"));
+			registerItemModel(ItemHandler.VANILLA_SOLID, dye.getMetadata(), new ResourceLocation("minecraft", dye.getName() + "_concrete"));
+			registerItemModel(ItemHandler.VANILLA_STAIRS, dye.getMetadata(), new ResourceLocation("concrete", "vanilla_stairs/" + dye.getName()));
+			registerItemModel(ItemHandler.VANILLA_SLAB, dye.getMetadata(), new ResourceLocation("concrete", "vanilla_slab/" + dye.getName()));
+			registerItemModel(ItemHandler.VANILLA_FENCE, dye.getMetadata(), new ResourceLocation("concrete", "vanilla_fence/" + dye.getName()));
+			registerItemModel(ItemHandler.VANILLA_GATE, dye.getMetadata(), new ResourceLocation("concrete", "vanilla_gate/" + dye.getName()));
+			registerItemModel(ItemHandler.VANILLA_STICK, dye.getMetadata(), new ResourceLocation("concrete", "vanilla_stick/" + dye.getName()));
+			
+			registerItemModel(ItemHandler.MAGMA_POWDER, dye.getMetadata(), new ResourceLocation("concrete", "magma_powder/" + dye.getName()));
+			registerItemModel(ItemHandler.MAGMA_SOLID, dye.getMetadata(), new ResourceLocation("concrete", "magma_solid/" + dye.getName()));
+			registerItemModel(ItemHandler.MAGMA_STAIRS, dye.getMetadata(), new ResourceLocation("concrete", "magma_stairs/" + dye.getName()));
+			registerItemModel(ItemHandler.MAGMA_SLAB, dye.getMetadata(), new ResourceLocation("concrete", "magma_slab/" + dye.getName()));
+			registerItemModel(ItemHandler.MAGMA_FENCE, dye.getMetadata(), new ResourceLocation("concrete", "magma_fence/" + dye.getName()));
+			registerItemModel(ItemHandler.MAGMA_GATE, dye.getMetadata(), new ResourceLocation("concrete", "magma_gate/" + dye.getName()));
+			registerItemModel(ItemHandler.MAGMA_STICK, dye.getMetadata(), new ResourceLocation("concrete", "magma_stick/" + dye.getName()));
+			
+			registerItemModel(ItemHandler.GLOWSTONE_POWDER, dye.getMetadata(), new ResourceLocation("concrete", "glowcrete_powder/" + dye.getName()));
+			registerItemModel(ItemHandler.GLOWSTONE_SOLID, dye.getMetadata(), new ResourceLocation("concrete", "glowcrete_solid/" + dye.getName()));
+			registerItemModel(ItemHandler.GLOWSTONE_STAIRS, dye.getMetadata(), new ResourceLocation("concrete", "glowcrete_stairs/" + dye.getName()));
+			registerItemModel(ItemHandler.GLOWSTONE_SLAB, dye.getMetadata(), new ResourceLocation("concrete", "glowcrete_slab/" + dye.getName()));
+			registerItemModel(ItemHandler.GLOWSTONE_FENCE, dye.getMetadata(), new ResourceLocation("concrete", "glowcrete_fence/" + dye.getName()));
+			registerItemModel(ItemHandler.GLOWSTONE_GATE, dye.getMetadata(), new ResourceLocation("concrete", "glowcrete_gate/" + dye.getName()));
+			registerItemModel(ItemHandler.GLOWSTONE_STICK, dye.getMetadata(), new ResourceLocation("concrete", "glowcrete_stick/" + dye.getName()));
+			
+			registerItemModel(ItemHandler.REDSTONE_POWDER, dye.getMetadata(), new ResourceLocation("concrete", "redcrete_powder/" + dye.getName()));
+			registerItemModel(ItemHandler.REDSTONE_SOLID, dye.getMetadata(), new ResourceLocation("concrete", "redcrete_solid/" + dye.getName()));
+			registerItemModel(ItemHandler.REDSTONE_STAIRS, dye.getMetadata(), new ResourceLocation("concrete", "redcrete_stairs/" + dye.getName()));
+			registerItemModel(ItemHandler.REDSTONE_SLAB, dye.getMetadata(), new ResourceLocation("concrete", "redcrete_slab/" + dye.getName()));
+			
+			registerItemModel(ItemHandler.BRUSH);
+			registerItemModel(ItemHandler.ERASER);
+			registerItemModel(ItemHandler.PALETTE);
+			registerItemModel(ItemHandler.CONCRETE_BUG);
+			
+			RenderingRegistry.registerEntityRenderingHandler(EntityConcreteBug.class, RenderFactoryConcreteBug.instance);
 		}
-		registerRender(ItemHandler.magmaP);
-		registerRender(ItemHandler.magmaS);
-		registerRender(ItemHandler.glowP);
-		registerRender(ItemHandler.glowS);
-		
-		registerRender(ItemHandler.palette);
-		registerRender(ItemHandler.brush);
-		registerRender(ItemHandler.eraser);
-		registerRender(ItemHandler.concreteBug);
-		
-		for(EnumDyeColor dye : EnumDyeColor.values()){
-			registerRender(CouldYouPleaseBeABitMorePolite.itemsSolidToFix.get(dye), 0, "one_point_twelve_concrete:randomStringOfCharactersIncoming");
-			registerRender(CouldYouPleaseBeABitMorePolite.itemsPowderToFix.get(dye), 0, "one_point_twelve_concrete:randomStringOfCharactersIncoming");
-		}
-		
-		RenderingRegistry.registerEntityRenderingHandler(EntityConcreteBug.class, RenderFactoryConcreteBug.instance);
 	}
 
 	@Override
-	public void onInit() {
-		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor(){
-
+	public void init() {
+		IItemColor color = new IItemColor() {
 			@Override
 			public int getColorFromItemstack(ItemStack stack, int tintIndex) {
 				return tintIndex == 1 && stack.hasTagCompound() && stack.getTagCompound().hasKey("color", new NBTTagInt(0).getId()) ? stack.getTagCompound().getInteger("color") : 0xFFFFFF;
 			}
-			
-		}, ItemHandler.brush, ItemHandler.concreteBug);
-	}
-	
-	@Override
-	public void onPostInit() {
+		};
 		
+		registerItemColor(color, ItemHandler.BRUSH);
+		registerItemColor(color, ItemHandler.CONCRETE_BUG);
 	}
 
-	@SideOnly(Side.CLIENT)
-	private static void registerRender(Item item){
-		registerRender(item, 0, item.getRegistryName());
-	}
-	
-	@SideOnly(Side.CLIENT)
-	private static void registerRender(Item item, int meta, Object loc){
-		String location = "";
-		if(loc instanceof String){
-			location = (String)loc;
-		} else if(loc instanceof ResourceLocation){
-			location = ((ResourceLocation)loc).toString();
-		}
-		if(location == ""){
-			throw new IllegalArgumentException(loc + " isn't a String or ResourceLocation");
-		}
-		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(location, "normal"));
-	}
-	
+	@Override
+	public void postInit() { }
+
 }

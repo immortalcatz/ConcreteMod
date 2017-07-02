@@ -1,21 +1,29 @@
 package fr.dbrown55.concrete;
 
-import java.util.Calendar;
+import java.util.HashMap;
+import java.util.logging.Logger;
 
 import fr.dbrown55.concrete.blocks.BlockHandler;
-import fr.dbrown55.concrete.client.GuiHandler;
+import fr.dbrown55.concrete.client.ConcreteModelLoader;
 import fr.dbrown55.concrete.client.SoundHandler;
-import fr.dbrown55.concrete.compat.ChiselModCompat;
-import fr.dbrown55.concrete.compat.ProjectECompat;
+import fr.dbrown55.concrete.commands.ConcreteHelpCommand;
 import fr.dbrown55.concrete.entities.EntityHandler;
-import fr.dbrown55.concrete.events.TickEvents;
+import fr.dbrown55.concrete.events.ConcreteEvents;
+import fr.dbrown55.concrete.events.EMCEvent;
 import fr.dbrown55.concrete.items.ItemHandler;
-import fr.dbrown55.concrete.net.SetPaintMessage;
-import fr.dbrown55.concrete.net.SetPaintMessageHandler;
-import fr.dbrown55.concrete.proxies.CommonProxy;
+import fr.dbrown55.concrete.net.MessageOpenGui;
+import fr.dbrown55.concrete.net.MessageSetPaint;
 import fr.dbrown55.concrete.recipes.RecipeHandler;
+import fr.dbrown55.concrete.tabs.ConcreteGlowstoneTab;
+import fr.dbrown55.concrete.tabs.ConcreteItemsTab;
+import fr.dbrown55.concrete.tabs.ConcreteMagmaTab;
+import fr.dbrown55.concrete.tabs.ConcreteRedstoneTab;
+import fr.dbrown55.concrete.tabs.ConcreteVanillaTab;
+import fr.dbrown55.utilmod.BaseProxy;
+import fr.dbrown55.utilmod.Handler;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -24,74 +32,83 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
-@Mod(modid = Main.MODID, name = Main.NAME, version = Main.VERSION)
+@Mod(modid = Main.MODID, name = Main.NAME, version = Main.VERSION, dependencies = Main.DEPS)
 public class Main {
 
 	public static final String MODID = "concrete";
 	public static final String NAME = "1.12 Concrete";
-	public static final String VERSION = "1.1";
+	public static final String VERSION = "1.2";
+	public static final String DEPS = "required-after:dbrownutil";
 	
-	public static Configuration conf;
+	public static final Logger logger = Logger.getLogger(MODID);
 	
-	public static boolean PECompat, ChiselCompat, AprilFools, vanillaBehavior;
+	public static ConcreteConf config;
+	
+	@SidedProxy(clientSide = "fr.dbrown55.concrete.proxies.ClientProxy", serverSide = "fr.dbrown55.concrete.proxies.CommonProxy")
+	public static BaseProxy proxy;
 	
 	@Instance
 	public static Main instance;
 	
-	@SidedProxy(serverSide="fr.dbrown55.concrete.proxies.CommonProxy",clientSide="fr.dbrown55.concrete.proxies.ClientProxy")
-	public static CommonProxy proxy;
-	
 	public static SimpleNetworkWrapper wrapper;
 	
+	public static HashMap<String, CreativeTabs> concreteTabs = new HashMap<String, CreativeTabs>();
+	public static CreativeTabs concreteTabItems;
+	
 	@EventHandler
-	public static void onPreInit(FMLPreInitializationEvent e){
-		BlockHandler.init();
-		ItemHandler.init();
-		RecipeHandler.preInit();
-		EntityHandler.init();
-		SoundHandler.init();
+	public static void onPreInit(FMLPreInitializationEvent e) {
+		config = new ConcreteConf(e.getSuggestedConfigurationFile());
 		
-		Calendar c = Calendar.getInstance();
-		conf = new Configuration(e.getSuggestedConfigurationFile());
-		PECompat = conf.getBoolean("projecte", "modCompat", true, "Whenever we should enable ProjectE compatibility") && Loader.isModLoaded("ProjectE") ;
-		ChiselCompat = conf.getBoolean("chisel", "modCompat", true, "Whenever we should enable Chisel compatibility") && Loader.isModLoaded("chisel");
-		AprilFools = conf.getBoolean("aprilFools", "misc", false, "Whenever we should enable the AprilFools update features ?") || (c.get(Calendar.DAY_OF_MONTH) == 1 && c.get(Calendar.MONTH) == 3);
-		vanillaBehavior = conf.getBoolean("vanillaBehavior", "misc", false, "Whenever the falling concrete should act like in vanilla (might not be EXACTLY like in vanilla)");
-		conf.save();
+		Handler.addHandler(new BlockHandler(), MODID);
+		Handler.addHandler(new ItemHandler(), MODID);
+		Handler.addHandler(new RecipeHandler(), MODID);
+		Handler.addHandler(new EntityHandler(), MODID);
+		Handler.addHandler(new SoundHandler(), MODID);
+		
+		Handler.onPreInit(MODID);
+		
+		proxy.preInit();
+		
+		MinecraftForge.EVENT_BUS.register(new ConcreteEvents());
+		if(Main.config.isProjectECompatOn()) {
+			MinecraftForge.EVENT_BUS.register(new EMCEvent());
+		}
 		
 		wrapper = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
-		wrapper.registerMessage(SetPaintMessageHandler.class, SetPaintMessage.class, 0, Side.SERVER);
+		wrapper.registerMessage(MessageOpenGui.TheHandler.class, MessageOpenGui.class, 0, Side.CLIENT); 
+		wrapper.registerMessage(MessageSetPaint.TheHandler.class, MessageSetPaint.class, 1, Side.SERVER);
 		
-		MinecraftForge.EVENT_BUS.register(new TickEvents());
-		
-		proxy.onPreInit();
+		concreteTabs.put("vanilla", new ConcreteVanillaTab());
+		concreteTabs.put("magma", new ConcreteMagmaTab());
+		concreteTabs.put("glowstone", new ConcreteGlowstoneTab());
+		concreteTabs.put("redstone", new ConcreteRedstoneTab());
+		concreteTabItems = new ConcreteItemsTab();
 	}
 	
 	@EventHandler
-	public static void onInit(FMLInitializationEvent e){
-		proxy.onInit();
-		NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
-		RecipeHandler.init();
+	public static void onInit(FMLInitializationEvent e) {		
+		ModelLoaderRegistry.registerLoader(new ConcreteModelLoader());
+		
+		Handler.onInit(MODID);
+		
+		proxy.init();
 	}
 	
 	@EventHandler
-	public static void onPostInit(FMLPostInitializationEvent e){
-		// ProjectE compatibility
-		if(PECompat){
-			ProjectECompat.init();
-		}
+	public static void onPostInit(FMLPostInitializationEvent e) {
+		Handler.onPostInit(MODID);
 		
-		// Chisel compatibility
-		if(ChiselCompat){
-			ChiselModCompat.init();
-		}
-		
-		proxy.onPostInit();
-		
+		proxy.postInit();
+	}
+	
+	@EventHandler
+	public static void onServerStarted(FMLServerStartingEvent e){
+		e.registerServerCommand(new ConcreteHelpCommand());
 	}
 	
 }

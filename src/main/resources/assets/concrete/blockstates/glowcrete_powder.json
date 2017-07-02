@@ -1,5 +1,91 @@
 {
-    "variants": {
-        "normal": { "model": "concrete:glowcrete_powder" }
-    }
+	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"all": "concrete:blocks/glowcrete/white_powder"
+		},
+		"model": "cube_all"
+	},
+	"variants": {
+		"color": {
+			"white": {
+				// Nothing
+			},
+			"orange": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/orange_powder"
+				}
+			},
+			"magenta": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/magenta_powder"
+				}
+			},
+			"light_blue": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/light_blue_powder"
+				}
+			},
+			"yellow": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/yellow_powder"
+				}
+			},
+			"lime": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/lime_powder"
+				}
+			},
+			"pink": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/pink_powder"
+				}
+			},
+			"gray": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/gray_powder"
+				}
+			},
+			"silver": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/silver_powder"
+				}
+			},
+			"cyan": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/cyan_powder"
+				}
+			},
+			"purple": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/purple_powder"
+				}
+			},
+			"blue": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/blue_powder"
+				}
+			},
+			"brown": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/brown_powder"
+				}
+			},
+			"green": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/green_powder"
+				}
+			},
+			"red": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/red_powder"
+				}
+			},
+			"black": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/black_powder"
+				}
+			}
+		}
+	}
 }

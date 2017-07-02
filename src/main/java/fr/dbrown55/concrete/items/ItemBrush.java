@@ -1,15 +1,15 @@
 package fr.dbrown55.concrete.items;
 
-import java.util.Random;
-
 import fr.dbrown55.concrete.Main;
 import fr.dbrown55.concrete.client.SoundHandler;
-import fr.dbrown55.concrete.client.gui.GuiColorChooser;
 import fr.dbrown55.concrete.entities.EntityConcreteBug;
+import fr.dbrown55.concrete.net.MessageOpenGui;
+import fr.dbrown55.concrete.net.MessageOpenGui.GuiEnum;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -48,11 +48,11 @@ public class ItemBrush extends Item {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		if(hand == EnumHand.MAIN_HAND && playerIn.isSneaking()){
-			if(playerIn.getHeldItem(EnumHand.OFF_HAND) == null){
+			if(playerIn.getHeldItemOffhand() == null){
 				playerIn.inventory.armorInventory[3] = itemStackIn.copy();
 				itemStackIn.stackSize = 0;
-			} else if(playerIn.getHeldItem(EnumHand.OFF_HAND).getItem() == ItemHandler.palette){
-				playerIn.openGui(Main.instance, GuiColorChooser.ID, worldIn, (int)playerIn.posX, (int)playerIn.posY, (int)playerIn.posZ);
+			} else if(playerIn.getHeldItemOffhand().getItem() == ItemHandler.PALETTE && !worldIn.isRemote){
+				Main.wrapper.sendTo(new MessageOpenGui(GuiEnum.PAINT), (EntityPlayerMP) playerIn);
 			}
 			return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
 		}

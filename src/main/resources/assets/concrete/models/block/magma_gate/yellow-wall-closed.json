@@ -1,0 +1,6 @@
+{
+	"parent": "block/wall_gate_closed",
+	"textures": {
+		"texture": "concrete:blocks/magma_concrete/yellow"
+	}
+}

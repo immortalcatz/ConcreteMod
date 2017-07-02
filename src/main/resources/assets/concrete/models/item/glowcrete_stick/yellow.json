@@ -1,0 +1,6 @@
+{
+	"parent": "concrete:item/concrete_stick",
+	"textures": {
+		"texture": "concrete:blocks/glowcrete/yellow"
+	}
+}

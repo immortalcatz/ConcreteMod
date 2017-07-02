@@ -1,0 +1,131 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"texture": "concrete:blocks/magma_concrete/white"
+		},
+		"model": "fence_post"
+	},
+	"variants": {
+		"color": {
+			"white": {
+				// Nothing
+			},
+			"orange": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/orange"
+				}
+			},
+			"magenta": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/magenta"
+				}
+			},
+			"light_blue": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/light_blue"
+				}
+			},
+			"yellow": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/yellow"
+				}
+			},
+			"lime": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/lime"
+				}
+			},
+			"pink": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/pink"
+				}
+			},
+			"gray": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/gray"
+				}
+			},
+			"silver": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/silver"
+				}
+			},
+			"cyan": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/cyan"
+				}
+			},
+			"purple": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/purple"
+				}
+			},
+			"blue": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/blue"
+				}
+			},
+			"brown": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/brown"
+				}
+			},
+			"green": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/green"
+				}
+			},
+			"red": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/red"
+				}
+			},
+			"black": {
+				"textures": {
+					"texture": "concrete:blocks/magma_concrete/black"
+				}
+			}
+		},
+		"east": {
+			"false": {
+			
+			},
+			"true": {
+				"submodel": {
+					"eastBars": { "model": "fence_side", "y": 90 }
+				}
+			}
+		},
+		"north": {
+			"false": {
+			
+			},
+			"true": {
+				"submodel": {
+					"northBars": { "model": "fence_side" }
+				}
+			}
+		},
+		"south": {
+			"false": {
+			
+			},
+			"true": {
+				"submodel": {
+					"southBars": { "model": "fence_side", "y": 180 }
+				}
+			}
+		},
+		"west": {
+			"false": {
+			
+			},
+			"true": {
+				"submodel": {
+					"westBars": { "model": "fence_side", "y": 270 }
+				}
+			}
+		}
+	}
+}

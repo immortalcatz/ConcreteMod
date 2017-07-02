@@ -1,20 +1,35 @@
 package fr.dbrown55.concrete.items;
 
-import fr.dbrown55.concrete.blocks.BlockConcrete;
-import fr.dbrown55.concrete.blocks.BlockConcretePowder;
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlock;
+import fr.dbrown55.concrete.Main;
+import fr.dbrown55.concrete.blocks.concreteBaseClasses.ConcreteBase;
+import fr.dbrown55.utilmod.helpers.SideHelper;
+import fr.dbrown55.utilmod.objects.DbrownItemBlock;
+import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.translation.I18n;
 
-public abstract class ItemBlockConcrete extends ItemBlock {
+public class ItemBlockConcrete extends DbrownItemBlock {
 
-	public ItemBlockConcrete(BlockConcrete blk){
-		super(blk);
-		this.setRegistryName(blk.getRegistryName());
-		this.setUnlocalizedName(blk.getUnlocalizedName());
-		this.setMaxDamage(0);
+	private ConcreteBase base;
+	
+	public ItemBlockConcrete(ConcreteBase block) {
+		super(block);
+		this.base = block;
 		this.setHasSubtypes(true);
+		this.setMaxDamage(0);
+	}
+
+	@Override
+	public int getMetadata(int damage) {
+		return damage;
 	}
 	
 	@Override
-	public abstract int getMetadata(int damage);
+	public String getItemStackDisplayName(ItemStack stack) {
+		if(SideHelper.isClient()) {
+			return this.base.getDisplayName(stack);
+		}
+		return super.getItemStackDisplayName(stack);
+	}
+
 }

@@ -1,5 +1,91 @@
 {
-    "variants": {
-        "normal": { "model": "concrete:glowcrete" }
-    }
+	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"all": "concrete:blocks/glowcrete/white"
+		},
+		"model": "cube_all"
+	},
+	"variants": {
+		"color": {
+			"white": {
+				// Nothing
+			},
+			"orange": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/orange"
+				}
+			},
+			"magenta": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/magenta"
+				}
+			},
+			"light_blue": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/light_blue"
+				}
+			},
+			"yellow": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/yellow"
+				}
+			},
+			"lime": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/lime"
+				}
+			},
+			"pink": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/pink"
+				}
+			},
+			"gray": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/gray"
+				}
+			},
+			"silver": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/silver"
+				}
+			},
+			"cyan": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/cyan"
+				}
+			},
+			"purple": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/purple"
+				}
+			},
+			"blue": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/blue"
+				}
+			},
+			"brown": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/brown"
+				}
+			},
+			"green": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/green"
+				}
+			},
+			"red": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/red"
+				}
+			},
+			"black": {
+				"textures": {
+					"all": "concrete:blocks/glowcrete/black"
+				}
+			}
+		}
+	}
 }

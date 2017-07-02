@@ -1,18 +1,40 @@
 package fr.dbrown55.concrete.entities;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import fr.dbrown55.concrete.Main;
-import net.minecraft.world.gen.structure.StructureVillagePieces.PieceWeight;
+import fr.dbrown55.utilmod.Handler;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
-import net.minecraftforge.fml.common.registry.VillagerRegistry;
 
-public class EntityHandler {
+public class EntityHandler extends Handler {
 
-	public static void init() {
+	@Override
+	public void preInit() {
 		EntityRegistry.registerModEntity(EntityConcreteBug.class, "ConcreteBug", 0, Main.instance, 64, 3, false);
 		EntityRegistry.registerEgg(EntityConcreteBug.class, 0xFFFFFF, 0xF5F5F5);
+	}
+
+	@Override
+	public void init() {
+		
+	}
+
+	@Override
+	public void postInit() {
+		
+	}
+
+	@Override
+	public EnumHandlerPriority getPriority() {
+		return EnumHandlerPriority.ENTITY;
+	}
+
+	@Override
+	public String[] getDependencies(EnumHandlerPhase phase) {
+		return new String[] {};
+	}
+
+	@Override
+	public String[] getRequirements(EnumHandlerPhase phase) {
+		return new String[] {};
 	}
 
 }

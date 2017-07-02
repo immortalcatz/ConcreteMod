@@ -1,0 +1,8 @@
+{
+    "parent": "block/half_slab",
+	"textures": {
+		"top": "concrete:blocks/redcrete/yellow",
+		"bottom": "concrete:blocks/redcrete/yellow",
+		"side": "concrete:blocks/redcrete/yellow"
+	}
+}

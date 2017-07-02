@@ -1,5 +1,91 @@
 {
-    "variants": {
-        "normal": { "model": "concrete:magma_concrete" }
-    }
+	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"all": "concrete:blocks/magma_concrete/white"
+		},
+		"model": "cube_all"
+	},
+	"variants": {
+		"color": {
+			"white": {
+				// Nothing
+			},
+			"orange": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/orange"
+				}
+			},
+			"magenta": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/magenta"
+				}
+			},
+			"light_blue": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/light_blue"
+				}
+			},
+			"yellow": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/yellow"
+				}
+			},
+			"lime": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/lime"
+				}
+			},
+			"pink": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/pink"
+				}
+			},
+			"gray": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/gray"
+				}
+			},
+			"silver": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/silver"
+				}
+			},
+			"cyan": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/cyan"
+				}
+			},
+			"purple": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/purple"
+				}
+			},
+			"blue": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/blue"
+				}
+			},
+			"brown": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/brown"
+				}
+			},
+			"green": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/green"
+				}
+			},
+			"red": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/red"
+				}
+			},
+			"black": {
+				"textures": {
+					"all": "concrete:blocks/magma_concrete/black"
+				}
+			}
+		}
+	}
 }

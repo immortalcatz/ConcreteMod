@@ -1,35 +1,86 @@
-itemGroup.concreteTab=1.12 Concrete Mod
+itemGroup.concreteTab.items=1.12 Concrete Mod (Items)
+itemGroup.concreteTab.vanilla=1.12 Concrete Mod (Vanilla)
+itemGroup.concreteTab.magma=1.12 Concrete Mod (Magma)
+itemGroup.concreteTab.glowstone=1.12 Concrete Mod (Glowstone)
+itemGroup.concreteTab.redstone=1.12 Concrete Mod (Redstone)
 
-tile.concrete_powder.name=%s Concrete Powder
 tile.concrete.name=%s Concrete
-tile.magma_concrete.name=Magma Concrete
-tile.magma_concrete_powder.name=Magma Concrete Powder
-tile.glowcrete.name=Glow-crete
-tile.glowcrete_powder.name=Glow-crete Powder
+tile.concrete_powder.name=%s Concrete Powder
+tile.vanilla_stairs.name=%s Concrete Stairs
+tile.vanilla_slab.name=%s Concrete Slab
+tile.vanilla_fence.name=%s Concrete Fence
+tile.vanilla_gate.name=%s Concrete Fence Gate
+item.vanilla_stick.name=%s Concrete Stick
+
+tile.magma_concrete.name=%s Magma Concrete
+tile.magma_concrete_powder.name=%s Magma Concrete Powder
+tile.magma_concrete_stairs.name=%s Magma Concrete Stairs
+tile.magma_concrete_slab.name=%s Magma Concrete Slab
+tile.magma_concrete_fence.name=%s Magma Concrete Fence
+tile.magma_concrete_gate.name=%s Magma Concrete Fence Gate
+item.magma_concrete_stick.name=%s Magma Concrete Stick
+
+tile.glowstone_concrete.name=%s Glow-crete
+tile.glowstone_concrete_powder.name=%s Glow-crete Powder
+tile.glowstone_concrete_stairs.name=%s Glow-crete Stairs
+tile.glowstone_concrete_slab.name=%s Glow-crete Slab
+tile.glowstone_concrete_fence.name=%s Glow-crete Fence
+tile.glowstone_concrete_gate.name=%s Glow-crete Fence Gate
+item.glowstone_concrete_stick.name=%s Glow-crete Stick
+
+tile.redstone_concrete.name=%s Red-crete
+tile.redstone_concrete_powder.name=%s Red-crete Powder
+tile.redstone_concrete_stairs.name=%s Red-crete Stairs
+tile.redstone_concrete_slab.name=%s Red-crete Slab
 
 item.deprecatedItem.name=§d§o@Deprecated§r §4§mthis§r §7//§lTODO§r§7: fix
 item.palette.name=Palette
 item.brush.name=Paint brush
+item.brush.preset_color.name=Paint brush (%s)
 item.eraser.name=Eraser
-
-color.white=White
-color.orange=Orange
-color.magenta=Magenta
-color.lightBlue=Light Blue
-color.yellow=Yellow
-color.lime=Lime
-color.pink=Pink
-color.gray=Gray
-color.silver=Light Gray
-color.cyan=Cyan
-color.purple=Purple
-color.blue=Blue
-color.brown=Brown
-color.green=Green
-color.red=Red
-color.black=Black
+item.bugDecoration.name=Concrete Bug
+item.bugDecoration.preset_color.name=Concrete Bug (%s)
 
 entity.concrete.ConcreteBug.name=Concrete Bug
 
 paint.subtitle=Player painting
 eraser.subtitle=Player erasing
+
+welcomemessage.part1=Welcome back %s. At any time, you can type 
+welcomemessage.part2= for more info.
+welcomemessage.click=Or you can click the command.
+
+command.concrete.notPlayer=The command needs to be ran by a player.
+
+helpBook.intro.title=§lConcrete Mod§r
+helpBook.intro.by=by §6Dbrown55<--§r
+
+helpBook.intro.1=This menu will guide you
+helpBook.intro.2=through the content of
+helpBook.intro.3=the mod.
+
+helpBook.tableOfContent=Table of content
+
+helpBook.vanilla.title=Vanilla
+helpBook.vanilla.text1=Just like in 1.12, upon
+helpBook.vanilla.text2=contact with water, will
+helpBook.vanilla.text3=solidify.
+
+helpBook.vanilla+.title=Vanilla +
+helpBook.vanilla+.text1=Stairs, slabs, fences
+helpBook.vanilla+.text2=and their gates, for
+helpBook.vanilla+.text3=your decorative needs.
+
+helpBook.custom.title=Custom Concrete Types
+helpBook.custom.text1=Magma, glowstone and
+helpBook.custom.text2=redstone. Better than
+helpBook.custom.text3="just" pretty.
+helpBook.custom.text4=Note: Redstone
+helpBook.custom.text5=concrete does not
+helpBook.custom.text6=have fences or fence
+helpBook.custom.text7=gates.
+
+helpBook.links.title=Links
+helpBook.links.youtube=YouTube
+helpBook.links.twitter=Twitter
+helpBook.links.site=My website (WIP)

@@ -1,0 +1,6 @@
+{
+    "parent": "block/fence_inventory",
+	"textures": {
+		"texture": "concrete:blocks/glowcrete/blue"
+	}
+}

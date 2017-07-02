@@ -1,0 +1,8 @@
+{
+	"parent": "block/outer_stairs",
+	"textures": {
+		"top": "concrete:blocks/redcrete/cyan",
+		"bottom": "concrete:blocks/redcrete/cyan",
+		"side": "concrete:blocks/redcrete/cyan"
+	}
+}
