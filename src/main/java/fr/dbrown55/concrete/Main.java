@@ -13,6 +13,8 @@ import fr.dbrown55.concrete.events.EMCEvent;
 import fr.dbrown55.concrete.items.ItemHandler;
 import fr.dbrown55.concrete.net.MessageOpenGui;
 import fr.dbrown55.concrete.net.MessageSetPaint;
+import fr.dbrown55.concrete.recipes.ChiselRecipeHandler;
+import fr.dbrown55.concrete.recipes.ProjectERecipeHandler;
 import fr.dbrown55.concrete.recipes.RecipeHandler;
 import fr.dbrown55.concrete.tabs.ConcreteGlowstoneTab;
 import fr.dbrown55.concrete.tabs.ConcreteItemsTab;
@@ -24,7 +26,6 @@ import fr.dbrown55.utilmod.Handler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -67,6 +68,12 @@ public class Main {
 		Handler.addHandler(new BlockHandler(), MODID);
 		Handler.addHandler(new ItemHandler(), MODID);
 		Handler.addHandler(new RecipeHandler(), MODID);
+		if(config.isProjectECompatOn()) {
+			Handler.addHandler(new ProjectERecipeHandler(), MODID);
+		}
+		if(config.isChiselCompatOn()) {
+			Handler.addHandler(new ChiselRecipeHandler(), MODID);
+		}
 		Handler.addHandler(new EntityHandler(), MODID);
 		Handler.addHandler(new SoundHandler(), MODID);
 		
