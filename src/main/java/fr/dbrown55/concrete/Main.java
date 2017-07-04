@@ -99,11 +99,7 @@ public class Main {
 	}
 	
 	@EventHandler
-	public static void onInit(FMLInitializationEvent e) {
-		if(SideHelper.isClient()) {
-			ModelLoaderRegistry.registerLoader(new ConcreteModelLoader());
-		}
-		
+	public static void onInit(FMLInitializationEvent e) {		
 		Handler.onInit(MODID);
 		
 		proxy.init();

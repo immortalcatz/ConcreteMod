@@ -1,5 +1,6 @@
 package fr.dbrown55.concrete.proxies;
 
+import fr.dbrown55.concrete.client.ConcreteModelLoader;
 import fr.dbrown55.concrete.entities.EntityConcreteBug;
 import fr.dbrown55.concrete.items.ItemHandler;
 import fr.dbrown55.concrete.render.concretebug.RenderFactoryConcreteBug;
@@ -9,6 +10,7 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends BaseProxyClient {
@@ -68,6 +70,8 @@ public class ClientProxy extends BaseProxyClient {
 		
 		registerItemColor(color, ItemHandler.BRUSH);
 		registerItemColor(color, ItemHandler.CONCRETE_BUG);
+		
+		ModelLoaderRegistry.registerLoader(new ConcreteModelLoader());
 	}
 
 	@Override
