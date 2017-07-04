@@ -23,6 +23,7 @@ import fr.dbrown55.concrete.tabs.ConcreteRedstoneTab;
 import fr.dbrown55.concrete.tabs.ConcreteVanillaTab;
 import fr.dbrown55.utilmod.BaseProxy;
 import fr.dbrown55.utilmod.Handler;
+import fr.dbrown55.utilmod.helpers.SideHelper;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.MinecraftForge;
@@ -98,8 +99,10 @@ public class Main {
 	}
 	
 	@EventHandler
-	public static void onInit(FMLInitializationEvent e) {		
-		ModelLoaderRegistry.registerLoader(new ConcreteModelLoader());
+	public static void onInit(FMLInitializationEvent e) {
+		if(SideHelper.isClient()) {
+			ModelLoaderRegistry.registerLoader(new ConcreteModelLoader());
+		}
 		
 		Handler.onInit(MODID);
 		
