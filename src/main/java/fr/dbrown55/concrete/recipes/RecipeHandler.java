@@ -37,7 +37,7 @@ public class RecipeHandler extends Handler {
 			GameRegistry.addShapedRecipe(new ItemStack(ItemHandler.VANILLA_SOLID, 1, dye.getMetadata()), "ss", "ss", 's', new ItemStack(ItemHandler.VANILLA_STICK, 1, dye.getMetadata()));
 			GameRegistry.addShapedRecipe(new ItemStack(ItemHandler.VANILLA_FENCE, 3, dye.getMetadata()), "bsb", "bsb", 'b', new ItemStack(ItemHandler.VANILLA_SOLID, 1, dye.getMetadata()), 's', new ItemStack(ItemHandler.VANILLA_STICK, 1, dye.getMetadata()));
 			GameRegistry.addShapedRecipe(new ItemStack(ItemHandler.VANILLA_GATE, 1, dye.getMetadata()), "sbs", "sbs", 'b', new ItemStack(ItemHandler.VANILLA_SOLID, 1, dye.getMetadata()), 's', new ItemStack(ItemHandler.VANILLA_STICK, 1, dye.getMetadata()));
-			
+
 			GameRegistry.addShapedRecipe(new ItemStack(ItemHandler.MAGMA_POWDER, 1, dye.getMetadata()), " m ", "mpm", " m ", 'm', Items.MAGMA_CREAM, 'p', new ItemStack(ItemHandler.VANILLA_POWDER, 1, dye.getMetadata()));
 			GameRegistry.addShapedRecipe(new ItemStack(ItemHandler.MAGMA_STAIRS, 8, dye.getMetadata()), "b  ", "bb ", "bbb", 'b', new ItemStack(ItemHandler.MAGMA_SOLID, 1, dye.getMetadata()));
 			GameRegistry.addShapedRecipe(new ItemStack(ItemHandler.MAGMA_SLAB, 6, dye.getMetadata()), "bbb", 'b', new ItemStack(ItemHandler.MAGMA_SOLID, 1, dye.getMetadata()));
@@ -57,6 +57,13 @@ public class RecipeHandler extends Handler {
 			GameRegistry.addShapedRecipe(new ItemStack(ItemHandler.REDSTONE_POWDER, 1, dye.getMetadata()), "rrr", "rpr", "rrr", 'r', Items.REDSTONE, 'p', new ItemStack(ItemHandler.VANILLA_POWDER, 1, dye.getMetadata()));
 			GameRegistry.addShapedRecipe(new ItemStack(ItemHandler.REDSTONE_STAIRS, 8, dye.getMetadata()), "b  ", "bb ", "bbb", 'b', new ItemStack(ItemHandler.REDSTONE_SOLID, 1, dye.getMetadata()));
 			GameRegistry.addShapedRecipe(new ItemStack(ItemHandler.REDSTONE_SLAB, 6, dye.getMetadata()), "bbb", 'b', new ItemStack(ItemHandler.REDSTONE_SOLID, 1, dye.getMetadata()));
+			
+			if(dye != EnumDyeColor.WHITE) {
+				GameRegistry.addShapedRecipe(new ItemStack(ItemHandler.VANILLA_POWDER, 8, dye.getMetadata()), "ccc", "cdc", "ccc", 'c', new ItemStack(ItemHandler.VANILLA_POWDER, 1, 0), 'd', new ItemStack(Items.DYE, 1, dye.getDyeDamage()));
+				GameRegistry.addShapedRecipe(new ItemStack(ItemHandler.MAGMA_POWDER, 8, dye.getMetadata()), "ccc", "cdc", "ccc", 'c', new ItemStack(ItemHandler.MAGMA_POWDER, 1, 0), 'd', new ItemStack(Items.DYE, 1, dye.getDyeDamage()));
+				GameRegistry.addShapedRecipe(new ItemStack(ItemHandler.GLOWSTONE_POWDER, 8, dye.getMetadata()), "ccc", "cdc", "ccc", 'c', new ItemStack(ItemHandler.GLOWSTONE_POWDER, 1, 0), 'd', new ItemStack(Items.DYE, 1, dye.getDyeDamage()));
+				GameRegistry.addShapedRecipe(new ItemStack(ItemHandler.REDSTONE_POWDER, 8, dye.getMetadata()), "ccc", "cdc", "ccc", 'c', new ItemStack(ItemHandler.REDSTONE_POWDER, 1, 0), 'd', new ItemStack(Items.DYE, 1, dye.getDyeDamage()));
+			}
 		}
 	}
 

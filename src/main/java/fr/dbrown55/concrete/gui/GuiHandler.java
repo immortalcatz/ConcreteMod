@@ -8,13 +8,22 @@ public class GuiHandler implements IGuiHandler {
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		// TODO Auto-generated method stub
+		switch(ID){
+		case 0:
+		case 1:
+			return new DummyContainer();
+		}
 		return null;
 	}
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		// TODO Auto-generated method stub
+		switch(ID){
+		case 0:
+			return new GuiColorChooser();
+		case 1:
+			return new GuiHelp();
+		}
 		return null;
 	}
 

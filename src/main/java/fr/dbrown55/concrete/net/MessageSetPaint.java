@@ -33,19 +33,5 @@ public class MessageSetPaint implements IMessage {
 	public int getColor(){
 		return this.color;
 	}
-
-	public static class TheHandler implements IMessageHandler<MessageSetPaint, IMessage> {
-		
-		@Override
-		public IMessage onMessage(MessageSetPaint message, MessageContext ctx) {
-			EntityPlayer pl = ctx.getServerHandler().playerEntity;
-			ItemStack is = pl.getHeldItemMainhand();
-			if(is != null && is.getItem() == ItemHandler.BRUSH && is.hasTagCompound()){
-				is.getTagCompound().setInteger("color", message.getColor());
-			}
-			return null;
-		}
-		
-	}
 	
 }

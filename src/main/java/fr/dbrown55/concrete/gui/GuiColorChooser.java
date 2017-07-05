@@ -51,7 +51,7 @@ public class GuiColorChooser extends GuiScreen {
 	private static GuiSlider slidR, slidG, slidB;
 	
 	public GuiColorChooser() {
-		System.out.println("kfjkdf");
+
 	}
 	
 	@Override

@@ -4,15 +4,15 @@ import java.util.HashMap;
 import java.util.logging.Logger;
 
 import fr.dbrown55.concrete.blocks.BlockHandler;
-import fr.dbrown55.concrete.client.ConcreteModelLoader;
 import fr.dbrown55.concrete.client.SoundHandler;
 import fr.dbrown55.concrete.commands.ConcreteHelpCommand;
 import fr.dbrown55.concrete.entities.EntityHandler;
 import fr.dbrown55.concrete.events.ConcreteEvents;
 import fr.dbrown55.concrete.events.EMCEvent;
+import fr.dbrown55.concrete.gui.GuiHandler;
 import fr.dbrown55.concrete.items.ItemHandler;
-import fr.dbrown55.concrete.net.MessageOpenGui;
 import fr.dbrown55.concrete.net.MessageSetPaint;
+import fr.dbrown55.concrete.net.MessageSetPaintHandler;
 import fr.dbrown55.concrete.recipes.ChiselRecipeHandler;
 import fr.dbrown55.concrete.recipes.ProjectERecipeHandler;
 import fr.dbrown55.concrete.recipes.RecipeHandler;
@@ -23,9 +23,7 @@ import fr.dbrown55.concrete.tabs.ConcreteRedstoneTab;
 import fr.dbrown55.concrete.tabs.ConcreteVanillaTab;
 import fr.dbrown55.utilmod.BaseProxy;
 import fr.dbrown55.utilmod.Handler;
-import fr.dbrown55.utilmod.helpers.SideHelper;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -88,8 +86,7 @@ public class Main {
 		}
 		
 		wrapper = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
-		wrapper.registerMessage(MessageOpenGui.TheHandler.class, MessageOpenGui.class, 0, Side.CLIENT); 
-		wrapper.registerMessage(MessageSetPaint.TheHandler.class, MessageSetPaint.class, 1, Side.SERVER);
+		wrapper.registerMessage(MessageSetPaintHandler.class, MessageSetPaint.class, 0, Side.SERVER);
 		
 		concreteTabs.put("vanilla", new ConcreteVanillaTab());
 		concreteTabs.put("magma", new ConcreteMagmaTab());
@@ -100,6 +97,8 @@ public class Main {
 	
 	@EventHandler
 	public static void onInit(FMLInitializationEvent e) {		
+		NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
+		
 		Handler.onInit(MODID);
 		
 		proxy.init();
