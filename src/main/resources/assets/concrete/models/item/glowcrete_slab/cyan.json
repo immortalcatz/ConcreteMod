@@ -1,0 +1,8 @@
+{
+    "parent": "block/half_slab",
+	"textures": {
+		"top": "concrete:blocks/glowcrete/cyan",
+		"bottom": "concrete:blocks/glowcrete/cyan",
+		"side": "concrete:blocks/glowcrete/cyan"
+	}
+}

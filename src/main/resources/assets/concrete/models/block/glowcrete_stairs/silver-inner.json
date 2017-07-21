@@ -1,0 +1,8 @@
+{
+	"parent": "block/inner_stairs",
+	"textures": {
+		"top": "concrete:blocks/glowcrete/silver",
+		"bottom": "concrete:blocks/glowcrete/silver",
+		"side": "concrete:blocks/glowcrete/silver"
+	}
+}

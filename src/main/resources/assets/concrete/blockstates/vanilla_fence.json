@@ -1,0 +1,131 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"texture": "blocks/concrete_white"
+		},
+		"model": "fence_post"
+	},
+	"variants": {
+		"color": {
+			"white": {
+				// Nothing
+			},
+			"orange": {
+				"textures": {
+					"texture": "blocks/concrete_orange"
+				}
+			},
+			"magenta": {
+				"textures": {
+					"texture": "blocks/concrete_magenta"
+				}
+			},
+			"light_blue": {
+				"textures": {
+					"texture": "blocks/concrete_light_blue"
+				}
+			},
+			"yellow": {
+				"textures": {
+					"texture": "blocks/concrete_yellow"
+				}
+			},
+			"lime": {
+				"textures": {
+					"texture": "blocks/concrete_lime"
+				}
+			},
+			"pink": {
+				"textures": {
+					"texture": "blocks/concrete_pink"
+				}
+			},
+			"gray": {
+				"textures": {
+					"texture": "blocks/concrete_gray"
+				}
+			},
+			"silver": {
+				"textures": {
+					"texture": "blocks/concrete_silver"
+				}
+			},
+			"cyan": {
+				"textures": {
+					"texture": "blocks/concrete_cyan"
+				}
+			},
+			"purple": {
+				"textures": {
+					"texture": "blocks/concrete_purple"
+				}
+			},
+			"blue": {
+				"textures": {
+					"texture": "blocks/concrete_blue"
+				}
+			},
+			"brown": {
+				"textures": {
+					"texture": "blocks/concrete_brown"
+				}
+			},
+			"green": {
+				"textures": {
+					"texture": "blocks/concrete_green"
+				}
+			},
+			"red": {
+				"textures": {
+					"texture": "blocks/concrete_red"
+				}
+			},
+			"black": {
+				"textures": {
+					"texture": "blocks/concrete_black"
+				}
+			}
+		},
+		"east": {
+			"false": {
+			
+			},
+			"true": {
+				"submodel": {
+					"eastBars": { "model": "fence_side", "y": 90 }
+				}
+			}
+		},
+		"north": {
+			"false": {
+			
+			},
+			"true": {
+				"submodel": {
+					"northBars": { "model": "fence_side" }
+				}
+			}
+		},
+		"south": {
+			"false": {
+			
+			},
+			"true": {
+				"submodel": {
+					"southBars": { "model": "fence_side", "y": 180 }
+				}
+			}
+		},
+		"west": {
+			"false": {
+			
+			},
+			"true": {
+				"submodel": {
+					"westBars": { "model": "fence_side", "y": 270 }
+				}
+			}
+		}
+	}
+}

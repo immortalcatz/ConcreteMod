@@ -1,0 +1,91 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"all": "concrete:blocks/redcrete/white_powder"
+		},
+		"model": "cube_all"
+	},
+	"variants": {
+		"color": {
+			"white": {
+				// Nothing
+			},
+			"orange": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/orange_powder"
+				}
+			},
+			"magenta": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/magenta_powder"
+				}
+			},
+			"light_blue": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/light_blue_powder"
+				}
+			},
+			"yellow": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/yellow_powder"
+				}
+			},
+			"lime": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/lime_powder"
+				}
+			},
+			"pink": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/pink_powder"
+				}
+			},
+			"gray": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/gray_powder"
+				}
+			},
+			"silver": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/silver_powder"
+				}
+			},
+			"cyan": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/cyan_powder"
+				}
+			},
+			"purple": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/purple_powder"
+				}
+			},
+			"blue": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/blue_powder"
+				}
+			},
+			"brown": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/brown_powder"
+				}
+			},
+			"green": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/green_powder"
+				}
+			},
+			"red": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/red_powder"
+				}
+			},
+			"black": {
+				"textures": {
+					"all": "concrete:blocks/redcrete/black_powder"
+				}
+			}
+		}
+	}
+}

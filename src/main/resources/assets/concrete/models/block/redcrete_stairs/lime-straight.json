@@ -1,0 +1,8 @@
+{
+	"parent": "block/stairs",
+	"textures": {
+		"top": "concrete:blocks/redcrete/lime",
+		"bottom": "concrete:blocks/redcrete/lime",
+		"side": "concrete:blocks/redcrete/lime"
+	}
+}

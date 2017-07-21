@@ -1,0 +1,106 @@
+itemGroup.concreteTab.items=Béton de la 1.12 (Items)
+itemGroup.concreteTab.vanilla=Béton de la 1.12 (Vanilla)
+itemGroup.concreteTab.magma=Béton de la 1.12 (Magma)
+itemGroup.concreteTab.glowstone=Béton de la 1.12 (Glowstone)
+itemGroup.concreteTab.redstone=Béton de la 1.12 (Redstone)
+
+color.white=Blanc
+color.orange=Orange
+color.magenta=Magenta
+color.light_blue=Bleu clair
+color.yellow=Jaune
+color.lime=Vert pomme
+color.pink=Rose
+color.gray=Gris
+color.silver=Gris clair
+color.cyan=Cyan
+color.purple=Violet
+color.blue=Bleu
+color.brown=Marron
+color.green=Vert
+color.red=Rouge
+color.black=Noir
+
+tile.concrete.name=Béton (%s)
+tile.concrete_powder.name=Poudre de béton (%s)
+tile.vanilla_stairs.name=Escaliers en béton (%s)
+tile.vanilla_slab.name=Dalle de béton (%s)
+tile.vanilla_fence.name=Barrière en béton (%s)
+tile.vanilla_gate.name=Porte-barrière en béton (%s)
+item.vanilla_stick.name=Baton de béton (%s)
+
+tile.magma_concrete.name=Béton de magma (%s)
+tile.magma_concrete_powder.name=Poudre de béton de magma (%s)
+tile.magma_concrete_stairs.name=Escaliers en béton de magma (%s)
+tile.magma_concrete_slab.name=Dalle de béton de magma (%s)
+tile.magma_concrete_fence.name=Barrière en béton de magma (%s)
+tile.magma_concrete_gate.name=Porte-barrière en béton de magma (%s)
+item.magma_concrete_stick.name=Baton de béton de magma (%s)
+
+tile.glowcrete_concrete.name=Béton lumineux (%s)
+tile.glowcrete_concrete_powder.name=Poudre de béton lumineux (%s)
+tile.glowcrete_concrete_stairs.name=Escaliers en béton lumineux (%s)
+tile.glowcrete_concrete_slab.name=Dalle de béton lumineux (%s)
+tile.glowcrete_concrete_fence.name=Barrière en béton lumineux (%s)
+tile.glowcrete_concrete_gate.name=Porte-barrière en béton lumineux (%s)
+item.glowcrete_concrete_stick.name=Baton de béton lumineux (%s)
+
+tile.redstone_concrete.name=Béton de Redstone (%s)
+tile.redstone_concrete_powder.name=Poudre de béton de Redstone (%s)
+tile.redstone_concrete_stairs.name=Escaliers en béton de Redstone (%s)
+tile.redstone_concrete_slab.name=Dalle de béton de Redstone (%s)
+
+item.deprecatedItem.name=§d§o@Deprecated§r §4§mthis§r §7//§lTODO§r§7: fix
+item.palette.name=Palette
+item.brush.name=Pinceau
+item.brush.preset_color.name=Pinceau (%s)
+item.eraser.name=Gomme
+item.bugDecoration.name=Insecte en béton (%s)
+
+entity.concrete.ConcreteBug.name=Insecte en béton
+
+paint.subtitle=Peinture
+eraser.subtitle=Gommage
+
+welcomemessage.part1=Bienvenue %s. À tout moment, tu peux utiliser la commande 
+welcomemessage.part2= pour plus d'infos.
+welcomemessage.click=Tu peux aussi cliquer ce texte.
+
+command.concrete.notPlayer=Cette command doit être exécutée par un joueur.
+
+helpBook.intro.title=§lBéton de la 1.12§r
+helpBook.intro.by=par §6Dbrown55<--§r
+helpBook.intro.1=Ce menu va te guider
+helpBook.intro.2=dans ce mod.
+helpBook.intro.3=
+
+helpBook.tableOfContent=Sommaire
+
+helpBook.vanilla.title=Vanilla
+helpBook.vanilla.text1=Comme en 1.12, au
+helpBook.vanilla.text2=contact de l'eau, va
+helpBook.vanilla.text3=se solidifier.
+
+helpBook.dying.title=Coloration
+helpBook.dying.text1=On peut colorer
+helpBook.dying.text2=le béton en poudre
+helpBook.dying.text3=blanc (comme la laine)
+
+helpBook.vanilla+.title=Vanilla +
+helpBook.vanilla+.text1=Des escaliers, dalles
+helpBook.vanilla+.text2=et barrières. Pour
+helpBook.vanilla+.text3=les plus créatifs.
+
+helpBook.custom.title=Bétons additionnels
+helpBook.custom.text1=Magma, glowstone et
+helpBook.custom.text2=redstone. Bien plus
+helpBook.custom.text3=que "juste" joli.
+helpBook.custom.text4=Note: Le béton
+helpBook.custom.text5=de redstone n'a
+helpBook.custom.text6=pas de barrière.
+helpBook.custom.text7=
+
+helpBook.links.title=Liens
+helpBook.links.youtube=YouTube
+helpBook.links.twitter=Twitter
+helpBook.links.site=Mon site (WIP)

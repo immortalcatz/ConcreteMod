@@ -1,0 +1,8 @@
+{
+	"parent": "block/inner_stairs",
+	"textures": {
+		"top": "concrete:blocks/magma_concrete/magenta",
+		"bottom": "concrete:blocks/magma_concrete/magenta",
+		"side": "concrete:blocks/magma_concrete/magenta"
+	}
+}

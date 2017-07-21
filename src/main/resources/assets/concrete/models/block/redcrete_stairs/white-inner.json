@@ -1,0 +1,8 @@
+{
+	"parent": "block/inner_stairs",
+	"textures": {
+		"top": "concrete:blocks/redcrete/white",
+		"bottom": "concrete:blocks/redcrete/white",
+		"side": "concrete:blocks/redcrete/white"
+	}
+}

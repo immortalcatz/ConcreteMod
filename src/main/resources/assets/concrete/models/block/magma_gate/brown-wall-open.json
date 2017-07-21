@@ -1,0 +1,6 @@
+{
+	"parent": "block/wall_gate_open",
+	"textures": {
+		"texture": "concrete:blocks/magma_concrete/brown"
+	}
+}

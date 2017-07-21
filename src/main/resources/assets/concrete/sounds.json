@@ -1,0 +1,4 @@
+{
+	"paint":  {"category": "player", "sounds": ["minecraft:mob/slime/big1", "minecraft:mob/slime/big2", "minecraft:mob/slime/big3", "minecraft:mob/slime/big4"], "subtitle": "paint.subtitle"},
+	"eraser": {"category": "player", "sounds": ["concrete:eraser/sample1", "concrete:eraser/sample2"], "subtitle": "eraser.subtitle"}
+}

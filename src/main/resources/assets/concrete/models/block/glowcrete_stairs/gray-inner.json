@@ -1,0 +1,8 @@
+{
+	"parent": "block/inner_stairs",
+	"textures": {
+		"top": "concrete:blocks/glowcrete/gray",
+		"bottom": "concrete:blocks/glowcrete/gray",
+		"side": "concrete:blocks/glowcrete/gray"
+	}
+}

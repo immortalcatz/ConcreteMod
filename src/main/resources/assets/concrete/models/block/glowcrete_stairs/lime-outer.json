@@ -1,0 +1,8 @@
+{
+	"parent": "block/outer_stairs",
+	"textures": {
+		"top": "concrete:blocks/glowcrete/lime",
+		"bottom": "concrete:blocks/glowcrete/lime",
+		"side": "concrete:blocks/glowcrete/lime"
+	}
+}
